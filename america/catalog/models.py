@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import permalink
 
 from django.contrib.localflavor.us.models import USStateField
 
@@ -31,6 +32,11 @@ class RegionalCenter(models.Model):
 
   def __unicode__(self):
     return "%s, %s, %s" % (self.name, self.state, self.url)
+
+  @permalink
+  def get_absolute_url(self):
+    return ('regional-center-detail', (), { 'pk': str(self.id) })
+    #return ('catalog.views.RegionalCenterDetailView', [str(self.id)])
 
 class BusinessToBuy(models.Model):
   """

@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'america.catalog.views.home', name='home'),
     url(r'^regionalcenter/$', RegionalCenterListView.as_view(), name='regional-center-list'),
-    url(r'^regionalcenter/(?P<pk>\d+)/$', RegionalCenterDetailView.as_view(), name='regional-center'),
+    url(r'^regionalcenter/(?P<pk>\d+)/$', RegionalCenterDetailView.as_view(), name='regional-center-detail'),
     #url(r'^america/', include('america.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

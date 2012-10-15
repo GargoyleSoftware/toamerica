@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+This is a regional center!
+
+<p>
+  {{ regional_center.name }} (in the state of {{ regional_center.state }})
+</p>
+
+<p>
+  Money to raise: {{ regional_center.money_to_raise }}
+</p>
+<p>
+  Money raised: {{ regional_center.money_raised }}
+</p>
+
+<a href="{{ regional_center.url }}">Homepage</a>
+
+{% endblock %}

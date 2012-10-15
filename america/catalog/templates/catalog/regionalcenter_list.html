@@ -5,9 +5,11 @@ This is a list of regional centers!
 
 <ul>
   {% for regional_center in object_list %}
-  <li>
-    Regional Center
-  </li>
+  <a href="{{ regional_center.get_absolute_url }}">
+    <li>
+      {{ regional_center.name }}
+    </li>
+  </a>
   {% endfor %}
 </ul>
 
