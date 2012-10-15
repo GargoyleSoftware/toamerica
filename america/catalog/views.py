@@ -4,8 +4,8 @@ from django.views.generic.list import ListView
 
 from models import RegionalCenter
 
-def home(request):
-  return HttpResponse('hello world')
+class HomeView(TemplateView):
+  template_name = "home.html"
 
 class RegionalCenterListView(ListView):
   #queryset = RegionalCenter.objects.all()

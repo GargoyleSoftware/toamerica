@@ -1,0 +1,223 @@
+/* app css stylesheet */
+
+
+/*
+.gig-link {text-decoration:none;}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+*/
+
+body {
+  padding-top: 20px;
+}
+
+#name {
+}
+
+#latest-hack-video {
+  border-radius: 15px;
+}
+
+p {font-size:100%}
+.main-content {
+  background-color: #CCC;
+  border-radius: 10px;
+}
+
+.right-bar {
+  background-color: #EEE;
+  border-radius: 10px;
+}
+
+.links {
+  padding: 10px;
+  font-size: medium;
+}
+
+.links ul li {
+}
+
+.portrait {
+  height: 256px;
+  border-radius: 15px;
+}
+
+
+.dk-profile {
+}
+
+#contact-btn {
+  margin-top: 5px;
+}
+
+.summary {
+  margin-top: 25px;
+}
+
+.summary-wrapper {
+  margin: 15px;
+}
+
+.latest-hack-title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.platform-logo {
+  height: 57px;
+  margin-bottom: 10px;
+}
+
+.repos {
+  position:relative;
+  top:-15px;
+  right:-15px;
+}
+
+.gig {
+  background-color: gray;
+}
+
+
+ul.gig-platforms-list li
+{
+  display: inline-block;
+  list-style-type: square;
+  margin-left: 5px;
+}
+
+.gig-description {
+  margin-top: 10px;
+}
+
+
+.gig-description p {
+  font-size: medium;
+}
+
+.summary-quotes p {
+  font-size: medium;
+}
+
+.gig-logo {
+  height: 57px;
+  max-width:400px;
+  position:relative;
+  top:-15px;
+}
+
+.gig-link {
+}
+
+
+.gig-date {
+  font-size: medium;
+  margin-bottom: 30px;
+}
+
+.gig-photo {
+  height: 360px;
+}
+
+
+.videos {
+  margin-top: 30px;
+}
+
+
+.app-store-links {
+  margin-top: 30px;
+}
+
+.app-store-link {
+  height: 57px;
+  margin-top: 10px;
+  /* 
+   */
+  vertical-align: middle;
+}
+
+/******************************************
+ * From angular
+ ******************************************/
+
+.girls {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -1em 1em 1.5em 0em;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.girls li {
+  clear: both;
+  height: 100px;
+  padding-top: 15px;
+}
+
+/** Detail View **/
+img.girl {
+  float: left;
+  border: 1px solid black;
+  margin-right: 3em;
+  margin-bottom: 2em;
+  background-color: white;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
+}
+
+ul.girl-thumbs {
+  margin: 0;
+  list-style: none;
+}
+
+ul.girl-thumbs li {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: white;
+}
+
+ul.girl-thumbs img {
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+}
+
+ul.girl-thumbs img:hover {
+  cursor: pointer;
+}
+
+
+ul.specs {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.specs > li{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+ul.specs > li > span{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ul.specs dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+}

@@ -8,8 +8,9 @@ from catalog.views import *
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'america.catalog.views.home', name='home'),
-    url(r'^regionalcenter/$', RegionalCenterListView.as_view(), name='regional-center-list'),
+    #url(r'^$', 'america.catalog.views.home', name='home'),
+    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^regionalcenter/$', RegionalCenterListView.as_view(), name='regional_list'),
     url(r'^regionalcenter/(?P<pk>\d+)/$', RegionalCenterDetailView.as_view(), name='regional-center-detail'),
     #url(r'^america/', include('america.foo.urls')),
 
