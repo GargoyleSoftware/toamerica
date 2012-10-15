@@ -2,27 +2,63 @@
 
 import os
 
+import dj_database_url
+from lib.S3 import CallingFormat
+
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Kenneth Kay', 'ken.kay@icihere.com'),
+     ('David Y. Kay', 'dk@gargoyle.co'),
 )
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'america',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+if os.environ.get('ENVIRONMENT') == 'production':
+  DEBUG = False
+  DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+  #EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+  MEDIA_ROOT  = 'media/'
+  STATIC_ROOT = ''
+
+  MEDIA_URL  = 'http://media.toamerica.us/media/'
+  STATIC_URL = 'http://media.toamerica.us/'
+
+  AWS_BUCKET_NAME = 'media.toamerica.us'   # Bucket name
+  # BOTO
+  DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+  STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+  AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+  AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+  AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+  AWS_STORAGE_BUCKET_NAME = AWS_BUCKET_NAME
+else:
+  DEBUG = True
+  DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'america',
+          'USER': '',
+          'PASSWORD': '',
+          'HOST': '',
+          'PORT': '',
+      }
+  }
+  STATIC_ROOT = SITE_ROOT + '/static/'
+  STATIC_URL = '/static/'
+  # Absolute filesystem path to the directory that will hold user-uploaded files.
+  # Example: "/home/media/media.lawrence.com/media/"
+  MEDIA_ROOT = SITE_ROOT + '/media/'
+
+  # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+  # trailing slash.
+  # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+  MEDIA_URL = ''
+
+# TODO: Bifurcate this for production!
+  EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+TEMPLATE_DEBUG = DEBUG
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -112,19 +148,15 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-# Email
-#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-
-# TODO: Bifurcate this for production!
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-AUTH_PROFILE_MODULE = ''
+#AUTH_PROFILE_MODULE = ''
 
 #AUTHENTICATION_BACKENDS = (
 #    'userena.backends.UserenaAuthenticationBackend',
 #    'guardian.backends.ObjectPermissionBackend',
 #    'django.contrib.auth.backends.ModelBackend',
 #    )
+
+PAYPAL_RECEIVER_EMAIL = ''
 
 INSTALLED_APPS = (
     # Our App
@@ -134,6 +166,7 @@ INSTALLED_APPS = (
     # Third-Party
     'south',
     'easy_thumbnails',
+    'paypal.standard.ipn',
     #'userena',
     #'guardian',
 

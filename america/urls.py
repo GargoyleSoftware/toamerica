@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     #url(r'^america/', include('america.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
+    url(r'^/something/hard/to/guess/', include('paypal.standard.ipn.urls')),
+
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
