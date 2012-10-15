@@ -109,17 +109,35 @@ WSGI_APPLICATION = 'america.wsgi.application'
 
 TEMPLATE_DIRS = (
     SITE_ROOT + '/templates/',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
+# Email
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# TODO: Bifurcate this for production!
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTH_PROFILE_MODULE = ''
+
+#AUTHENTICATION_BACKENDS = (
+#    'userena.backends.UserenaAuthenticationBackend',
+#    'guardian.backends.ObjectPermissionBackend',
+#    'django.contrib.auth.backends.ModelBackend',
+#    )
+
 INSTALLED_APPS = (
+    # Our App
     'america.catalog',
+    'america.accounts',
 
+    # Third-Party
     'south',
-    'csvimport',
+    'easy_thumbnails',
+    #'userena',
+    #'guardian',
 
+    # Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
