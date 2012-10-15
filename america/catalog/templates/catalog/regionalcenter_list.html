@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+This is a list of regional centers!
+
+<ul>
+  {% for regional_center in object_list %}
+  <li>
+    Regional Center
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
